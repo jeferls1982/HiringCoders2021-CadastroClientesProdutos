@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+  <link rel="stylesheet" href="../../css/clientes.css">
+  <title>Ecommerce-JLS</title>
+</head>
+
+<body>
+  <section class="section-container">
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="../../index.html">Ecommerce-JLS</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <div class="dropdown">
+                  <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    Paginas
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li><a class="dropdown-item" href="index.html">Clientes</a></li>
+                    <li><a class="dropdown-item" href="../produtos/index.html">Produtos</a></li>
+
+                  </ul>
+                </div>
+              </li>
+              <!-- <li class="nav-item">
+              <a class="nav-link" href="#">Features</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Pricing</a>
+            </li> -->
+            </ul>
+            <span class="navbar-text">
+              <i class="bi bi-box-arrow-right h4" title="Logout"></i>
+              <i class="bi bi-box-arrow-in-right h4 " title="Login"></i>
+              <i class="bi bi-person-plus-fill h4 m-3" title="Registrar-se"></i>
+            </span>
+          </div>
+        </div>
+      </nav>
+
+    </header>
+    <main>
+      <div class="container">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link " id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab"
+              aria-controls="home" aria-selected="true">Clientes</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile"
+              type="button" role="tab" aria-controls="profile" aria-selected="false">Adicionar</button>
+          </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade " id="home" role="tabpanel" aria-labelledby="home-tab">
+            <div class="card mt-3">
+              <div class="card-header">
+                Clientes
+              </div>
+              <div class="card-body">
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th scope="col">Email</th>
+                      <th scope="col">Nome</th>
+                      <th scope="col">Idade</th>
+                      <th scope="col">Telefone</th>
+                    </tr>
+                  </thead>
+                  <tbody id="table-clientes">
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+          </div>
+          <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+            <div class="card mt-3">
+              <div class="card-header">
+                Adicionar Clientes
+              </div>
+              <div class="card-body row">
+                <!-- -----------------------------------------------------------------------------formulario -->
+                <div class="col-sm-12">
+                  <label for="nome">Nome</label>
+                  <input type="text" id="nome" placeholder="Nome..." class="form-control">
+                </div>
+
+                <!-- ----------------------------------------------------------------------------------fim formulario -->
+                <div class="col-sm-4 mt-3">
+                  <label for="cpf">CPF</label>
+                  <input type="text" inputmode="numeric" id="cpf" placeholder="Cpf..." class="form-control">
+                </div>
+                <div class="col-sm-4 mt-3">
+                  <label for="dataNascimento">Data de Nascimento</label>
+                  <input type="date" id="dataNascimento" placeholder="Data de Nascimento..." class="form-control">
+                </div>
+                <div class="col-sm-4 mt-3">
+                  <label for="email">Email</label>
+                  <input type="email" inputmode="email" id="email" placeholder="Email..." class="form-control">
+                </div>
+
+                <div class="col-sm-6 mt-3">
+                  <label for="telefone">Telefone</label>
+                  <input type="tel" inputmode="tel" id="telefone" placeholder="Telefone..." class="form-control">
+                </div>
+                <div class="col-sm-6 mt-3">
+                  <label for="cep">Cep</label>
+                  <input type="text" inputmode="numeric" onblur="pesquisacep(this.value);" onchange="ativarNumero()" id="cep" placeholder="Cep..." class="form-control">
+                </div>
+
+                
+                <div class="col-sm-8 mt-3">
+                  <label for="cidade">Cidade</label>
+                  <input type="text" id="cidade" placeholder="Cidade..." class="form-control" disabled>
+                </div>
+                <div class="col-sm-4 mt-3">
+                  <label for="uf">DF</label>
+                  <input type="text" id="uf" placeholder="UF..." class="form-control" disabled>
+                </div>
+
+                <div class="col-sm-6 mt-3">
+                  <label for="logradouro">Logradouro</label>
+                  <input type="text"  id="logradouro" placeholder="Logradouro..." class="form-control" disabled>
+                </div>
+                <div class="col-sm-3 mt-3">
+                  <label for="numero">Número</label>
+                  <input type="text"  id="numero" onblur="ativarSubmit()" placeholder="Número..." class="form-control" disabled>
+                </div>
+                <div class="col-sm-3 mt-3">
+                  <label for="complemento">Complemento</label>
+                  <input type="text"  id="complemento" placeholder="Complemento..." class="form-control" disabled>
+                </div>
+
+                <div class="col-sm-2 mt-3">                  
+                  <button class="btn btn-success"  type="submit" disabled  onclick="save()" id="btnSubmit" >Salvar</button>
+                </div>
+                <div class="col-sm-10 mt-3 alert alert-danger d-none" id="erro" >                  
+                    Preencha todos os campos por favor...
+                </div>
+                
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+        </div>
+      </div>
+    </main>
+    <footer>
+
+    </footer>
+  </section>
+  <section id="loader" class="d-none">
+    <img src="../../static/img/load.gif" alt="">
+  </section>
+
+  <section id="modal-success" class="d-none">    
+  </section>
+  <div id="modal-info" class="d-none">
+      <div class="card p-2">
+        <div class="card-header text-success h6 text-center alert alert-success">
+          Cliente adicionado com sucesso
+        </div>
+        <div id="client-save-success" class="card-body">
+          <table class='table' id="table-modal">
+                         
+          </table>
+          <center><button id="fecha-modal" onclick="fechaModal()" class="btn btn-success">Ok</button></center>
+        </div>
+      </div>
+  </div>
+  <!-- Optional JavaScript; choose one of the two! -->
+
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+
+  <!-- Option 2: Separate Popper and Bootstrap JS -->
+  <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+</body>
+
+<script src="../../js/clientes.js"></script>
+
+</html>

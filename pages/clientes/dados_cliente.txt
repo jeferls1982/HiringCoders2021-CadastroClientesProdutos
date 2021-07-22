@@ -1,0 +1,21 @@
+clientes{
+    id:
+    nome:
+    cpf:
+    email:
+    telefone:
+    cep:
+    numero:
+    complemento:
+    dataNascimento:
+
+}
+
+let clienteTexto = '{"nome":"Angelo", "idade":86, "cidade":"São Paulo", "estado":"SP"}'
+
+clientes = [
+    {"id":"1","nome":"Jeferson Silveira","cpf":"12.123.123-12","email":"email@email.com","telefone":"42984455221","cep":"84050550","numero":"1100","complemento":"casa","dataNascimento":"1990-05-13"},
+    {"id":"2","nome":"Ana Almeida","cpf":"12.123.123-12","email":"email@email.com","telefone":"42984455221","cep":"84050550","numero":"1100","complemento":"casa","dataNascimento":"1990-05-13"},
+    {"id":"3","nome":"Ivo Silva","cpf":"12.123.123-12","email":"email@email.com","telefone":"42984455221","cep":"84050550","numero":"1100","complemento":"casa","dataNascimento":"1990-05-13"},
+    {"id":"4","nome":"Zeno Calisto","cpf":"12.123.123-12","email":"email@email.com","telefone":"42984455221","cep":"84050550","numero":"1100","complemento":"casa","dataNascimento":"1990-05-13"}
+]

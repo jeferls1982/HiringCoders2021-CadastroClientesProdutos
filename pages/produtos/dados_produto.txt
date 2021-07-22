@@ -1,0 +1,12 @@
+produto{
+    id:                 id
+    nome:               string
+    descricao:          text
+    codigo:             uid
+    valor_compra:       decimal
+    valor_venda:        decimal
+    promocao:           boolean
+    estoque:            int
+    ativo:              boolean
+    
+}

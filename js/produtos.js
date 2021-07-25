@@ -1,24 +1,24 @@
-if(localStorage.getItem('user')){
+if (localStorage.getItem('user')) {
     let login = document.querySelectorAll(".userOff")
     login.forEach(element => {
         element.classList.add("d-none")
     });
     const usuario = document.getElementById('userLogado');
     usuario.innerHTML = localStorage.getItem('user')
-}else{
+} else {
     let login = document.querySelectorAll(".userOn")
     login.forEach(element => {
         element.classList.add("d-none")
     });
 }
-function login(params) {    
-    let user = document.getElementById('user').value    
+function login(params) {
+    let user = document.getElementById('user').value
     let msg = `Bem vindo: <i>${user}</i>`
-    localStorage.setItem('user', msg )
+    localStorage.setItem('user', msg)
     window.location.href = "index.html";
 }
 
-function logout(){    
+function logout() {
     let login = document.querySelectorAll(".userOn")
     login.forEach(element => {
         element.classList.add("d-none")
@@ -27,9 +27,9 @@ function logout(){
     window.location.href = "../../index.html";
 }
 
-if(!localStorage.getItem('produtos')){
-    localStorage.setItem('produtos',JSON.stringify([]))
-    
+if (!localStorage.getItem('produtos')) {
+    localStorage.setItem('produtos', JSON.stringify([]))
+
 }
 var produtos = JSON.parse(localStorage.getItem('produtos'));
 var cards_produtos = document.getElementById('cards_produtos');
@@ -45,14 +45,14 @@ function testCategorias() {
         setSelect();
     }
 }
+listarProdutos()
+function listarProdutos() {
+    var listaCardsProdutos = "";
 
+    produtos.forEach(produto => {
 
-var listaCardsProdutos = "";
-
-produtos.forEach(produto => {
-    
-    listaCardsProdutos +=
-        `
+        listaCardsProdutos +=
+            `
     <div class="col">
         <div class="card p-3 shadow-sm m-3">
         <img src="${produto.img}" class="card-img-top" alt="${produto.nome}" width="100px">
@@ -64,9 +64,11 @@ produtos.forEach(produto => {
         </div>
     </div>
     `
-});
+    });
 
-cards_produtos.innerHTML = listaCardsProdutos
+    cards_produtos.innerHTML = listaCardsProdutos
+}
+
 
 // --------------------------------------------------------------------salvar produto
 //-----------------------------------------------------------------montando select categorias
@@ -152,6 +154,7 @@ submitProduto.addEventListener("click", function (e) {
         setMsg(true, "Produto Cadastrado!")
         produtos.push(produto)
         localStorage.setItem('produtos', JSON.stringify(produtos))
+        listarProdutos()
         window.location.href = "index.html";
     } else {
         setMsg(false, "Preencha todos os campos")

@@ -32,9 +32,9 @@
                   Paginas
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                  <li><a class="dropdown-item" href="pages/clientes/index.html">Clientes</a></li>
+                  <li><a class="dropdown-item userOn" onclick="clientes()" href="pages/clientes/index.html">Clientes</a></li>
                   <li><a class="dropdown-item" href="pages/produtos/index.html">Produtos</a></li>
-                  
+
                 </ul>
               </div>
             </li>
@@ -46,19 +46,61 @@
             </li> -->
           </ul>
           <span class="navbar-text">
-            <i class="bi bi-box-arrow-right h4" title="Logout"></i>
-            
-            
-            <i class="bi bi-box-arrow-in-right h4 " title="Login"></i>
-            <i class="bi bi-person-plus-fill h4 m-3" title="Registrar-se"></i>
+            <span id="userLogado" class="text-primary m-3"></span>
+            <i class="bi bi-box-arrow-right h4 logout m-3 userOn" onclick="logout()" title="Logout"></i>
+
+            <!-- Button trigger modal -->
+            <i class="bi bi-box-arrow-in-right h4 userOff" title="Login" data-bs-toggle="modal"
+              data-bs-target="#exampleModal"></i>
+            <i class="bi bi-person-plus-fill h4 m-3 userOff" title="Registrar-se" data-bs-toggle="modal"
+              data-bs-target="#exampleModal"></i>
           </span>
+
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form>
+                    <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Usuário</label>
+                      <input type="text"  class="form-control" id="user" aria-describedby="">
+                    </div>
+                    
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="login()">Login</button>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+
+
         </div>
       </div>
     </nav>
-    
+
   </header>
   <main>
     <p id="demo"></p>
+    <div class="container">
+      <span class="h2">Promoções do dia</span>
+      <span id="semProdutos"></span>
+      <div id="cards_produtos" class="row row-cols-1 row-cols-md-4 g-3">
+
+      </div>
+    </div>
+
   </main>
   <footer>
 
@@ -77,6 +119,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     -->
 </body>
-<script src="js/clientes.js"></script>
+
+<script src="js/main.js"></script>
 
 </html>

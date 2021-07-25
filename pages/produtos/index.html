@@ -11,59 +11,255 @@
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 
+  <link rel="stylesheet" href="../../css/clientes.css">
   <title>Ecommerce-JLS</title>
 </head>
 
 <body>
-  <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="../../index.html">Ecommerce-JLS</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
-          aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarText">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <div class="dropdown">
-                <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
-                  data-bs-toggle="dropdown" aria-expanded="false">
-                  Paginas
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                  <li><a class="dropdown-item" href="../clientes/index.html">Clientes</a></li>
-                  <li><a class="dropdown-item" href="index.html">Produtos</a></li>
-                  
-                </ul>
-              </div>
-            </li>
-            <!-- <li class="nav-item">
+  <section class="section-container">
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="../../index.html">Ecommerce-JLS</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <div class="dropdown">
+                  <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    Paginas
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li><a class="dropdown-item userOn" href="../clientes/index.html">Clientes</a></li>
+                    <li><a class="dropdown-item" href="../produtos/index.html">Produtos</a></li>
+
+                  </ul>
+                </div>
+              </li>
+              <!-- <li class="nav-item">
               <a class="nav-link" href="#">Features</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Pricing</a>
             </li> -->
-          </ul>
-          <span class="navbar-text">
-            <i class="bi bi-box-arrow-right h4" title="Logout"></i>
+            </ul>
+            <span class="navbar-text">
+              <span id="userLogado" class="text-primary m-3"></span>
+              <i class="bi bi-box-arrow-right h4 logout m-3 userOn" onclick="logout()" title="Logout"></i>
+
+              <!-- Button trigger modal -->
+              <i class="bi bi-box-arrow-in-right h4 userOff" title="Login" data-bs-toggle="modal"
+                data-bs-target="#exampleModal"></i>
+              <i class="bi bi-person-plus-fill h4 m-3 userOff" title="Registrar-se" data-bs-toggle="modal"
+                data-bs-target="#exampleModal"></i>
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <form>
+                        <div class="mb-3">
+                          <label for="exampleInputEmail1" class="form-label">Usuário</label>
+                          <input type="text" class="form-control" id="user" aria-describedby="">
+                        </div>
+
+                      </form>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+                        onclick="login()">Login</button>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </span>
+          </div>
+        </div>
+      </nav>
+
+    </header>
+    <main>
+      <div class="d-flex align-items-start">
+        <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+          <button class="nav-link " id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home"
+            type="button" role="tab" aria-controls="v-pills-home" aria-selected="false">Categorias</button>
+          <button class="nav-link active" id="v-pills-profile-tab" data-bs-toggle="pill"
+            data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile"
+            aria-selected="true">Produtos</button>
+
+          <button class="nav-link userOn" id="v-pills-settings-tab" data-bs-toggle="pill"
+            data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings"
+            aria-selected="false">Settings</button>
+        </div>
+
+        <div class="tab-content" id="v-pills-tabContent">
+          <!-- ----------------------------------------------------------------pag de categorias -->
+          <div class="tab-pane fade  " id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+            <form method="POSt" class=" m-3 row g-3 userOn">
+              <input id="inputCategoria" type="text" name="categoria" class="col-auto">
+              <input id="submit" type="submit" class="btn btn-sm btn-success bi bi-plus-circle col-auto"
+                value="Salvar Categoria" />
+            </form>
+            <div id="listaCategorias" class="col"></div>
+          </div>
+          <!-- ----------------------------------------------------------------pag de categorias -->
+          <!-- ----------------------------------------------------------------pag de produtos -->
+          <div class=" mt-3 tab-pane fade show active" id="v-pills-profile" role="tabpanel"
+            aria-labelledby="v-pills-profile-tab">
+
+            <!-- -----------------------------------------------------------------form add produto -->
+            <button class="btn btn-success  bi bi-plus-circle userOn" type="button" data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasTop" aria-controls="offcanvasTop" onclick="testCategorias()"> Adicionar
+              Produto</button>
             
-            
-            <i class="bi bi-box-arrow-in-right h4 " title="Login"></i>
-            <i class="bi bi-person-plus-fill h4 m-3" title="Registrar-se"></i>
-          </span>
+
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+              <div class="offcanvas-header">
+                <h5 id="offcanvasTopLabel" class="alert alert-success col-10 text-center">Adicione novo Produto</h5>
+
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                  aria-label="Close"></button>
+              </div>
+
+              <div class="offcanvas-body ">
+
+                <!-- -------------------------------------------------------form  -->
+                <form action="POST" enctype="multipart/form-data">
+
+                  <p class="text-danger">* Todos os campos são obrigatórios!</p>
+                  <div class="col-sm-12">
+                    <label for="categoria">Categoria <span class="text-danger">*</span></label>
+                    <select id="selectCategoria" name="selectCategoria" class="form-select"
+                      aria-label="Default select example">
+                    </select>
+                  </div>
+
+                  <div class="col-sm-12 mt-3">
+                    <label for="nome">Nome <span class="text-danger">*</span></label>
+                    <input type="text" id="prodNome" placeholder="Nome..." class="form-control">
+                  </div>
+                  <div class="col-sm-12 mt-3">
+                    <label for="img">Imagem <span class="text-danger">*</span></label>
+                    <input type="file" id="img" placeholder="Imagem..." class="form-control" onchange="enableSubmit()">
+                  </div>
+                  <div class="col-sm-12 mt-3">
+                    <label for="prodCodigo">Código <span class="text-danger">*</span></label>
+                    <input type="number" id="prodCodigo" placeholder="Código do Produto..." class="form-control">
+                  </div>
+                  <!-- ----------------------------------------------------------------------------------fim formulario -->
+                  <div class="col-sm-12 mt-3">
+                    <label for="prodDescricao">Descrição <span class="text-danger">*</span></label>
+                    <textarea type="text" id="prodDescricao" placeholder="Descrição..." class="form-control"></textarea>
+                  </div>
+
+                  <div class="col-sm-12 mt-3 row">
+                    <div class="col-6">
+                      <label for="valorCompra">Valor Compra <span class="text-danger">*</span></label>
+                      <input type="number" inputmode="numeric" id="valorCompra" placeholder="Valor Compra..."
+                        class="form-control">
+                    </div>
+                    <div class="col-6">
+                      <label for="valorVenda">Valor Venda <span class="text-danger">*</span></label>
+                      <input type="number" inputmode="numeric" id="valorVenda" placeholder="Valor Venda..."
+                        class="form-control">
+                    </div>
+
+                  </div>
+
+                  <div class="col-sm-12 mt-3 row">
+                    <div class="col-6 alert alert-info">
+                      <label for="promocao"> Promoção ?</label><br>
+                      <input type="radio" name="promocao" value="true" class="form-radio-input" /> Sim
+                      <input type="radio" name="promocao" value="false" class="form-radio-input" checked /> Não
+
+                    </div>
+                    <div class="col-6">
+                      <label for="estoque">Estoque <span class="text-danger">*</span></label>
+                      <input type="number" id="estoque" placeholder="Quantidade..." class="form-control">
+                    </div>
+
+                  </div>
+                  <p><small id="msgErro" class='col-sm-12 alert alert-danger d-none'>Todos os campos são
+                      obrigatórios</small></p>
+                  <p><small id="msgOk" class='col-sm-12 alert alert-success d-none'>Tudo certo :) Cadastrado!</small>
+                  </p>
+                  <div class="col-sm-12 mt-3">
+                    <input id="cadastraProduto" type="submit"
+                      class="m-3 col-12 btn btn-sm btn-success bi bi-plus-circle col-auto" value="Salvar Categoria"
+                      disabled />
+                  </div>
+
+
+
+                </form>
+              </div>
+            </div>
+
+            <!-- -----------------------------------------------------------------form add produto -->
+
+
+
+
+            <div id="cards_produtos" class="row row-cols-1 row-cols-md-4 g-3">
+
+            </div>
+
+
+
+
+
+
+
+
+
+          </div>
+          <!-- ----------------------------------------------------------------pag de categorias -->
+          <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">...
+          </div>
+          <div class="tab-pane fade userOn" id="v-pills-settings" role="tabpanel"
+            aria-labelledby="v-pills-settings-tab">
+            <div class="m-3">
+              <button class="btn btn-danger" onclick="limparCategorias()">limpar categorias</button>
+              <button class="btn btn-danger" onclick="limparProdutos()">limpar produtos</button>
+            </div>
+
+          </div>
         </div>
       </div>
-    </nav>
-    
-  </header>
-  <main>
-    <p id="demo"></p>
-  </main>
-  <footer>
+    </main>
+    <footer>
 
-  </footer>
+    </footer>
+  </section>
+  <section id="loader" class="d-none">
+    <img src="../../static/img/load.gif" alt="">
+  </section>
 
+  <section id="modal-success" class="d-none">
+  </section>
+  <div id="modal-info" class="d-none">
+    <div class="card p-2">
+      <div class="card-header text-success h6 text-center alert alert-success">
+        Cliente adicionado com sucesso
+      </div>
+      <div id="client-save-success" class="card-body">
+        <table class='table' id="table-modal">
+
+        </table>
+        <center><button id="fecha-modal" onclick="fechaModal()" class="btn btn-success">Ok</button></center>
+      </div>
+    </div>
+  </div>
   <!-- Optional JavaScript; choose one of the two! -->
 
   <!-- Option 1: Bootstrap Bundle with Popper -->
@@ -77,6 +273,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     -->
 </body>
-<script src="js/clientes.js"></script>
+
+<script src="js/main.js"></script>
+<script src="../../js/categorias.js"></script>
+<script src="../../js/produtos.js"></script>
+
 
 </html>

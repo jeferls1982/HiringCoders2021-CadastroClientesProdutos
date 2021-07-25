@@ -9,9 +9,7 @@ function clientes() {
     localStorage.setItem('listaClientes', false);
     clientes = [
         { "id": "1", "nome": "Jeferson Silveira", "cpf": "12.123.123-12", "email": "jef@email.com", "telefone": "42984455221", "cep": "84050550", "numero": "1100", "complemento": "casa", "dataNascimento": "1982-05-13" },
-        { "id": "2", "nome": "Ana Almeida", "cpf": "12.123.123-12", "email": "ana@email.com", "telefone": "42984455221", "cep": "84050550", "numero": "1100", "complemento": "casa", "dataNascimento": "1986-05-13" },
-        { "id": "3", "nome": "Ivo Silva", "cpf": "12.123.123-12", "email": "ivo@email.com", "telefone": "42984455221", "cep": "84050550", "numero": "1100", "complemento": "casa", "dataNascimento": "1977-05-13" },
-        { "id": "4", "nome": "Zeno Calisto", "cpf": "12.123.123-12", "email": "zeno@email.com", "telefone": "42984455221", "cep": "84050550", "numero": "1100", "complemento": "casa", "dataNascimento": "1994-05-13" }
+        
     ]
     let lista = JSON.stringify(clientes);
     localStorage.setItem('clientes', lista);

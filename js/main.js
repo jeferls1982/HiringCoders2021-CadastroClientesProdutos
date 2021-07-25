@@ -23,7 +23,7 @@ if (localStorage.getItem('produtos')) {
             listaCardsProdutos += `
         <div class="col">
             <div class="card p-3 shadow-sm m-3">
-            <img src="${path_static_img}${produto.img}" class="card-img-top" alt="${produto.nome}" width="100px">
+            <img src="${produto.img}" class="card-img-top" alt="${produto.nome}" width="100px">
             <div class="card-body">
                 <h5 class="card-title">${produto.nome}</h5>
                 <p class="card-text text-danger justify-content-end">R$ ${produto.valorVenda}</p>

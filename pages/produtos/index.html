@@ -134,7 +134,7 @@
               <div class="offcanvas-body ">
 
                 <!-- -------------------------------------------------------form  -->
-                <form action="POST" enctype="multipart/form-data">
+                <form action="POST" enctype="multipart/form-data" class="container">
 
                   <p class="text-danger">* Todos os campos são obrigatórios!</p>
                   <div class="col-sm-12">
@@ -150,7 +150,7 @@
                   </div>
                   <div class="col-sm-12 mt-3">
                     <label for="img">Imagem <span class="text-danger">*</span></label>
-                    <input type="file" id="img" placeholder="Imagem..." class="form-control" onchange="enableSubmit()">
+                    <input type="text" id="img" placeholder="Imagem..." class="form-control" onchange="enableSubmit()">
                   </div>
                   <div class="col-sm-12 mt-3">
                     <label for="prodCodigo">Código <span class="text-danger">*</span></label>
@@ -179,8 +179,8 @@
                   <div class="col-sm-12 mt-3 row">
                     <div class="col-6 alert alert-info">
                       <label for="promocao"> Promoção ?</label><br>
-                      <input type="radio" name="promocao" value="true" class="form-radio-input" /> Sim
-                      <input type="radio" name="promocao" value="false" class="form-radio-input" checked /> Não
+                      <input type="radio" name="promocao" value="true" class="form-radio-input" checked/> Sim
+                      <input type="radio" name="promocao" value="false" class="form-radio-input"  /> Não
 
                     </div>
                     <div class="col-6">
@@ -193,9 +193,9 @@
                       obrigatórios</small></p>
                   <p><small id="msgOk" class='col-sm-12 alert alert-success d-none'>Tudo certo :) Cadastrado!</small>
                   </p>
-                  <div class="col-sm-12 mt-3">
+                  <div class="col-sm-8 mt-3">
                     <input id="cadastraProduto" type="submit"
-                      class="m-3 col-12 btn btn-sm btn-success bi bi-plus-circle col-auto" value="Salvar Categoria"
+                      class="m-3 col-12 btn btn-sm btn-success bi bi-plus-circle col-auto" value="Salvar Produto"
                       disabled />
                   </div>
 

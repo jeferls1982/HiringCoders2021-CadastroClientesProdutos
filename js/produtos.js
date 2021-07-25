@@ -55,7 +55,7 @@ produtos.forEach(produto => {
         `
     <div class="col">
         <div class="card p-3 shadow-sm m-3">
-        <img src="${path_static_img}${produto.img}" class="card-img-top" alt="${produto.nome}" width="100px">
+        <img src="${produto.img}" class="card-img-top" alt="${produto.nome}" width="100px">
         <div class="card-body">
             <h5 class="card-title">${produto.nome}</h5>
             <p class="card-text text-danger justify-content-end">R$ ${produto.valorVenda}</p>
@@ -106,7 +106,7 @@ function setProduto() {
     produto.valorVenda = document.getElementById('valorVenda').value
     produto.estoque = document.getElementById('estoque').value
     produto.promocao = document.querySelector('input[name="promocao"]:checked').value;
-    produto.img = document.getElementById('img').files[0].name;
+    produto.img = document.getElementById('img').value;
     return produto
     console.log(produto)
 }
@@ -147,7 +147,7 @@ const submitProduto = document.getElementById('cadastraProduto');
 submitProduto.addEventListener("click", function (e) {
     e.preventDefault();
     var produto = setProduto();
-    alert(validaProduto(produto))
+    alert("Produto cadastrado com sucesso :)")
     if (validaProduto(produto)) {
         setMsg(true, "Produto Cadastrado!")
         produtos.push(produto)
